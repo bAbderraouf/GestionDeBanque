@@ -1,16 +1,26 @@
+all : banque
+
 banque : main.o client.o compte.o menu.o
-	g++ -o banque main.o compte.o menu.o
+	g++ -o banque main.o client.o compte.o menu.o
 
-main.o :  main.c
-	g++ -o main.o -c main.c
 
-client.o : client.c
-	g++ -o client.o -c client.c
+client.o : client.cpp client.h
+	g++ -c client.cpp
 
-compte.o : compte.c
-	g++ -o compte.o -c compte.c
+compte.o : compte.cpp compte.h
+	g++ -c compte.cpp
 
-menu.o : menu.c
-	g++ -o menu.o -c menu.c
+menu.o : menu.cpp menu.h
+	g++ -c menu.cpp
+	
+main.o :  main.cpp client.h compte.h menu.h
+	g++ -c main.cpp
+	
+clean : 
+	rm -rf *.o
+
+	
+	
+
 	
 
