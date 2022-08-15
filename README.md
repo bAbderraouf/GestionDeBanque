@@ -8,8 +8,8 @@ Ce code a été fait pour répondre a une demande d'étudiants lors de la realis
 
 
 Client
-	int    id_client
-	string nom
+	int    id_client.
+	string nom.
 	string prenom
 	string profession
 	string num_tel
