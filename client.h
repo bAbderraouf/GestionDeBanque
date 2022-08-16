@@ -18,7 +18,7 @@ private:
     string Prenom;
     string Profession;
     string Num_tel;
-    Compte *TableauDeComptes;   
+   // Compte *TableauDeComptes;   
 
 
 

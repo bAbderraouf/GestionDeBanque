@@ -18,6 +18,7 @@ main.o :  main.cpp client.h compte.h menu.h
 	
 clean : 
 	rm -rf *.o
+	rm -rf *.txt
 
 	
 	

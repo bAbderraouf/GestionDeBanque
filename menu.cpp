@@ -75,9 +75,13 @@ void gestionDesComptes(Compte* nouveau_cmpte)
 
     system("clear");
     cout << "---Gestion des comptes---\n";
+    cout << "1.Créer un nouveau compte via id_client.\n2.Consulter Solde.\n3.Fermer son compte\n..";
     // creer compte pour un client donné(via id_client)
     // consulter son solde
     //  ou fermer son compte
+    
+    std::cin >> choix_2;
+
     switch (choix_2)
     {
         case 1:
@@ -90,7 +94,11 @@ void gestionDesComptes(Compte* nouveau_cmpte)
             nouveau_cmpte->consulter_solde();
             break;
         }
-            // case 3 : fermer_compter(); break;
+        case 3 : 
+        {
+        	//fermer_compter(); 
+        	break;
+        }
         default:
         {
             cout << "\nchoix invalid..\nveuillez reprendre.\n";
@@ -109,6 +117,9 @@ void gestionDesOperations(Compte* nouveau_cmpte)
     system("clear");
     cout << "---Gestion des oppertations---\n";
     // retirer ou verser un montant
+    cout << "1.Retrait.\n2.Depot.\n..";
+    std::cin >> choix_3;
+    
     switch (choix_3)
     {
         case 1:

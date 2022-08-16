@@ -16,7 +16,9 @@ int main()
     do
     {
         choix = premierChoix();
+       
         switchChoix(choix , &nouveau , &nouveau_cmpte );
+         cout << choix;
 
     } while (choix != 4);
 

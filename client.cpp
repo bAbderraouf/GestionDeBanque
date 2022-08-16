@@ -11,8 +11,8 @@ Client::Client()
     Prenom = "PrenomToBeDefined";
     Profession = "ProfessionToBeDefined";
     Num_tel = "Num_telToBeDefined";
-    TableauDeComptes = NULL;  
-    TableauDeComptes = new Compte();
+    //TableauDeComptes = NULL;  
+    //TableauDeComptes = new Compte();
 
     // creation du fichier text contenant la liste des clients
     
@@ -32,15 +32,15 @@ Client::Client(int _Id_client, string _Nom, string _Prenom, string _Profession, 
     Prenom = _Prenom;
     Profession = _Profession;
     Num_tel = _Num_tel;
-    TableauDeComptes = NULL; 
-    TableauDeComptes = new Compte();
+    //TableauDeComptes = NULL; 
+    //TableauDeComptes = new Compte();
 }
 
 //----------------
 // destructeur
 Client::~Client()
 {
-    delete TableauDeComptes;  // liberer la case memoire
+    //delete TableauDeComptes;  // liberer la case memoire
 }
 
 //----------------

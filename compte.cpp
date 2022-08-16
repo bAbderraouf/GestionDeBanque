@@ -94,6 +94,6 @@ void Compte::creer_compte(){
     cin >> date_douverture;
     
     // ecrire sur le fichier
-    mesComptes << id_client << " " << id_compte << " " << solde << " " << date_douverture << endl;
+    mesComptes << id_client << "\t" << id_compte << "\t" << solde << "\t" << date_douverture << endl;
     mesComptes.close();
 }

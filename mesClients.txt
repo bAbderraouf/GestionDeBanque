@@ -1,5 +1,0 @@
-55 abderraouf bousri  0750556885
-Id_client	Nom	Prenom	Profession	Num_tel
-3	ab	cd	fg	078021540
-2	ba	dz	fq	057893654
-Id_client	Nom	Prenom	Profession	Num_tel
