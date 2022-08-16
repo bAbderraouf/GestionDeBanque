@@ -1,5 +1,7 @@
 #include "menu.h"
 
+using namespace std;
+
 // premiere fonction de choix
 
 int premierChoix(void)
@@ -69,7 +71,7 @@ void gestionDesClients(Client *nouveau)
 
 //
 
-void gestionDesComptes(Compte* nouveau_cmpte)
+void gestionDesComptes(Compte* nouveauCmpte , Client* nouveauClient)
 {
     int choix_2 = 0;
 
@@ -86,12 +88,12 @@ void gestionDesComptes(Compte* nouveau_cmpte)
     {
         case 1:
         {
-            nouveau_cmpte->creer_compte();
+            nouveauCmpte->creer_compte();
             break;
         }
         case 2:
         {
-            nouveau_cmpte->consulter_solde();
+            nouveauCmpte->consulter_solde();
             break;
         }
         case 3 : 
@@ -143,23 +145,23 @@ void gestionDesOperations(Compte* nouveau_cmpte)
 
 //
 
-void switchChoix(int choix , Client* nouveau , Compte* nouveau_cmpte ){
+void switchChoix(int choix , Client* nouveauClient , Compte* nouveauCmpte ){
     
         switch (choix)
         {
             case 1:
             {
-                gestionDesClients(nouveau);
+                gestionDesClients(nouveauClient);
                 break;
             }
             case 2:
             {
-                gestionDesComptes(nouveau_cmpte);
+                gestionDesComptes(nouveauCmpte , nouveauClient);
                 break;
             }
             case 3:
             {
-                gestionDesOperations(nouveau_cmpte);
+                gestionDesOperations(nouveauCmpte);
                 break;
             }
             case 4:

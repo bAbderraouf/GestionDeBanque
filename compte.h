@@ -5,27 +5,36 @@
 #include <string>
 #include <fstream>
 
-using namespace std;
+
+
+
 
 class Compte
 {
-private:
-    int Id_compte;
-    int Id_client;
-    double Solde;
-    string Date_douverture;
+	private:
+	    int Id_compte;
+	    int Id_client;
+	    double Solde;
+	    std::string Date_douverture;
 
-public:
-    Compte();
-    Compte(int , int , double , string ); //
-    ~Compte();  //
+	public:
+	    Compte();
+	    Compte(int , int , double , std::string ); //
+	    ~Compte();  //
 
-    void creer_compte();  //
-    void consulter_solde(); //
-    void fermer_compter();  //
+	    void creer_compte();  //
+	    void consulter_solde(); //
+	    void fermer_compter();  //
 
-    void retrait();  //
-    void depot();    //
+	    void retrait();  //
+	    void depot();    //
+	    
+	    // creation d'un nouveau compte
+	    int getNewIdCompte();
+	    std::string getDateAujourdui();
 };
+
+
+bool verfierIdClient(int id);
 
 #endif

@@ -1,5 +1,5 @@
-#include "compte.h"
 #include "client.h"
+#include "compte.h"
 #include <iostream>
 #include <string>
 #include "menu.h"
@@ -18,7 +18,6 @@ int main()
         choix = premierChoix();
        
         switchChoix(choix , &nouveau , &nouveau_cmpte );
-         cout << choix;
 
     } while (choix != 4);
 

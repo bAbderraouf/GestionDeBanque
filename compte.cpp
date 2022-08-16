@@ -1,4 +1,6 @@
 #include "compte.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 
 using namespace std;
@@ -10,9 +12,10 @@ Compte::Compte()
     Id_compte = 0;
     Solde = 0;
     Date_douverture = "01/01/1901";
+    
 }
 
-// constructeur
+// constructeur  (a enlever : doit etre fait automatiquements)
 Compte::Compte(int _Id_compte, int _Id_client, double _Solde, string _Date_douverture){
 
     Id_compte = _Id_compte ;
@@ -27,6 +30,24 @@ Compte::~Compte(){
 
 }
 
+
+//
+
+int Compte::getNewIdCompte()
+{
+	Id_compte++;
+	
+	return Id_compte;	
+}
+
+//
+
+string Compte::getDateAujourdui()
+{	
+	string dateAujourdui = "01/01/1901"; 
+	return dateAujourdui; // a calculer après
+
+}
 
 //
 
@@ -73,27 +94,90 @@ void Compte::fermer_compter(){
 }
 
 void Compte::creer_compte(){
+
+
+    cout << "\n----ajout d'un nouveau compte-----\n";
+    cout << "\nVeuillez fournir l'ID du client en question ...\n";
     
-    int id_client = 0;
-    int id_compte = 0;
-    double solde = 0;
-    string date_douverture = "01/01/1901";
-
-    cout << "\n----ajout d'un nouveau client-----\n";
-
-    ofstream mesComptes;
-    mesComptes.open("mesComptes.txt", ios::app); // ios::app (ecrire a la fin du fichier)
-
     cout << "Id_client : " << endl;
-    cin >> id_client;
-    cout << "id_compte : " << endl;
-    cin >> id_compte;
-    cout << "solde : " << endl;
-    cin >> solde;
-    cout << "date_douverture : " << endl;
-    cin >> date_douverture;
+    cin >> Id_client;
     
-    // ecrire sur le fichier
-    mesComptes << id_client << "\t" << id_compte << "\t" << solde << "\t" << date_douverture << endl;
-    mesComptes.close();
+    
+    // check si id_client existe dans la liste des client enregistré
+    bool clientEnregistree = false;
+    clientEnregistree = verfierIdClient(Id_client) ; 
+    
+    
+    
+    // client deja enregistrée dans la banque 
+    if (clientEnregistree)
+    { 
+	    cout << "\nLe client est bien enregistré... Création du compte..\n";
+	    cout << "id_compte : " << endl;
+	    Id_compte = getNewIdCompte();    // s'incrimente automatiquement
+	    Solde = 0 ;				// le compte se crée vide
+	    Date_douverture = getDateAujourdui();
+	    
+	    // ouvrir un fichier en ecriture 
+	    ofstream mesComptes;
+	    mesComptes.open("mesComptes.txt", ios::app); // ios::app (ecrire a la fin du fichier)
+	    
+	    // ecrire sur le fichier
+	    mesComptes << Id_client << "\t" << Id_compte << "\t" << Solde << "\t" << Date_douverture << endl;
+	    mesComptes.close();
+	    
+	    cout << "\nLe compte a été enregistré avec sucess.\n";
+     }
+     else
+     {
+     	cout << "\nLe client en question n'est pas enregistré, veuillez d'abords vous enregistrer avant de créer un compte, merci.\n";
+     }
 }
+
+
+//--------------- verifier si le client est enregistré ou non -----------
+
+ bool verfierIdClient(int id)
+ {
+ 
+ 	bool enregistree = false;
+ 	
+ 	// créer un flux de lecture 
+ 	ifstream mesClients;
+ 	mesClients.open("mesClients.txt");
+ 	
+ 	
+ 	if(mesClients)
+ 	{	
+ 		string ligne;
+ 		char c;
+ 		int id_lu =0;
+ 		
+ 		// positionner le curseur au debut du fichier
+ 		mesClients.seekg(0 , ios::beg);
+ 
+ 		while(getline(mesClients , ligne))
+ 		{	
+ 			
+ 			c = ligne[0];
+ 			id_lu = c - '0' ;         	// convertir le mot (1 seul caracter numerique) en int;
+ 			
+ 			if(id_lu == id)
+ 			{	
+ 				// client trouvé
+				enregistree = true;
+				break;		
+ 			}
+ 		}
+ 	
+ 	}
+ 	else
+ 	{
+ 		cout << "\nErreur : Aucun client n'a été enregistré, veuillez en enregistrer un svp .. \n";
+ 		enregistree = false;
+ 	}
+ 	
+ 	
+ 	return enregistree;
+ 
+ }

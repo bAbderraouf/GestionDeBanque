@@ -16,12 +16,12 @@ Client::Client()
 
     // creation du fichier text contenant la liste des clients
     
-    ofstream mesClients;
-    mesClients.open("mesClients.txt", ios::app); // ios::app (ecrire a la fin du fichier)
+    //ofstream mesClients;
+    //mesClients.open("mesClients.txt", ios::app); // ios::app (ecrire a la fin du fichier)
     
     // ecrire sur le fichier
-    mesClients << "Id_client" << "\t" << "Nom" << "\t" << "Prenom" << "\t" << "Profession" << "\t" << "Num_tel" << endl;
-    mesClients.close();
+    //mesClients << "Id_client" << "\t" << "Nom" << "\t" << "Prenom" << "\t" << "Profession" << "\t" << "Num_tel" << endl;
+    //mesClients.close();
 }
 //----------------
 // 2eme constructeur
@@ -82,3 +82,5 @@ void Client::modifier_info_client(){
 void Client::supprimer_client(){
 
 }
+
+

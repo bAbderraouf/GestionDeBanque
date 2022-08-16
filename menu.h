@@ -8,10 +8,11 @@ int premierChoix(void);
 
 void gestionDesClients(Client*);
 
-void gestionDesComptes(Compte*);
+void gestionDesComptes(Compte* , Client*);
 
 void gestionDesOperations(Compte*);
 
 void switchChoix(int choix , Client* , Compte* );
+
 
 #endif
